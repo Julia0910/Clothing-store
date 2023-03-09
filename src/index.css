@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mySwiper {
+  margin-top: -36px;
+  height: 50vw;
+}
+
+.slide>img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.navigation-bar {
+  position: relative;
+  z-index: 3;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 16px;
+  column-gap: 24px;
+}
