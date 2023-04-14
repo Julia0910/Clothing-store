@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import { mainBackground } from "../app/api/face.api/background";
+import { mainBackground } from "../api/face.api/background";
 
 const MainPageStore = () => {
   return (

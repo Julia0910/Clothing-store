@@ -1,5 +1,6 @@
 import { categories } from "./categories.api";
-export const products = [
+
+const products = [
   {
     id: "АРТ.2303W5302-01",
     title: "БОМБЕР ИЗ ЭКОКОЖИ",
@@ -81,7 +82,7 @@ export const products = [
     ],
   },
   {
-    id: "АРТ.CO072",
+    id: "АРТ.CO076",
     title: "ОДНОБОРТНОЕ ПАЛЬТО-ЖАКЕТ",
     price: "16990",
     size: ["S", "M", "L", "XL"],
@@ -767,3 +768,13 @@ export const products = [
     ],
   },
 ];
+const fetchAll = () =>
+  new Promise((resolve) => {
+    window.setTimeout(function () {
+      resolve(products);
+    }, 2000);
+  });
+
+export default {
+  fetchAll,
+};

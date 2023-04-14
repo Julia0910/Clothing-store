@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { categories } from "../app/api/categories.api";
-const CargoCatalog = () => {
+import { categories } from "../api/face.api/categories.api";
+const ProductCatalog = () => {
   const history = useHistory();
   const handleClick = () => {
     history.push("/productList");
@@ -18,4 +18,4 @@ const CargoCatalog = () => {
   );
 };
 
-export default CargoCatalog;
+export default ProductCatalog;
