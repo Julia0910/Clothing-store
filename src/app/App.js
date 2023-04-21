@@ -11,7 +11,7 @@ function App() {
     <div>
       <NavigationPanel className="navigation-bar" />
       <Switch>
-        <Route path="/catalog" component={ProductList} />
+        <Route path="/catalog/:productId?" component={ProductList} />
         <Route path="/shoppingCart" component={ShoppingCart} />
         <Route path="/personalAccount" component={PersonalAccount} />
         <Route path="/authorizationPage" component={AuthorizationPage} />
