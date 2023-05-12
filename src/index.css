@@ -1,36 +1,63 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
-
-.mySwiper {
-  margin-top: -36px;
-  height: 50vw;
-}
-
-.slide>img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 .navigation-bar {
   position: relative;
   z-index: 3;
+  height: 40px;
+}
+/* .main-page {
+  
+} */
+.mainSwiper {
+  margin-top: 7px;
+  height: 50vw;
 }
 
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 16px;
-  column-gap: 24px;
+.mainSwiper .slide>img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
+
+
+.mainSwiper.swiper {
+  width: 100%;
+  height: 100%;
+}
+.mainSwiper.swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainSwiper.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body {
+  background: #000;
+  color: #000;
+}
+
+.mainSwiper .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+

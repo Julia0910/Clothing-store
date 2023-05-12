@@ -1,0 +1,19 @@
+.cart-items {
+  margin: 0% 20% 0% 20% ;
+  min-height: 100vh;
+}
+.card-body {
+  display: flex;
+}
+.cart-item {
+  max-width: 700px;
+  margin-top: 50px;
+}
+.style-icon {
+  margin-left: auto;
+}
+.style-img {
+  max-width: 55.5%;
+  height: 100%;
+  object-fit: cover;
+}

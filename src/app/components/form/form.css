@@ -1,0 +1,21 @@
+.style-form {
+  padding: 20px;
+  background-color: silver;
+  border-radius: 3%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 90%;
+  
+}
+.style-blosk{
+  display: block;
+  margin: 10% 35% 20% 35%;
+}
+.style-input {
+  height: 40px;
+  width: 85%;
+  min-width: 85%;
+}
+.style-input-div {
+  padding: 10px;
+}

@@ -1,0 +1,85 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 16px;
+  column-gap: 24px;
+  min-height: 100vh;
+}
+.product-container {
+  display: flex;
+  width: 45%;
+}
+.productSwiper {
+  height: 800px;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.productSwiper .swiper-slide {
+  height: 200px;
+  opacity: 0.4;
+}
+
+.productSwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+.mySwiper2 {
+  height: 800px;
+  width: 600px;
+}
+.mySwiper2.swiper {
+  margin: 0;
+}
+
+.mySwiper2 img {
+  object-fit: contain;
+}
+.swiper-slide img {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.style-info {
+  margin: 5% 0% 20% 50%;
+  position: absolute;
+  top: 0;
+}
+.style-h1 {
+  margin-bottom: 40px;
+}
+.style-price {
+  margin-bottom: 50px;
+}
+.style-description {
+  margin-bottom: 40px;
+
+}
+.style-structure {
+  margin-bottom: 50px;
+}
+.style-size{
+  margin-right: 15px;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 50px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  border: solid;
+  border-color: silver;
+  width: 70px;
+}
+.style-button {
+color: aliceblue;
+background-color: black;
+width: 300px;
+height: 45px;
+}
+.style-button:disabled {
+  color: aliceblue;
+  background-color: gray;
+}
+.style-active {
+  color: aliceblue;
+  background-color: black;
+}

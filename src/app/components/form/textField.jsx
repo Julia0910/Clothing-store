@@ -1,21 +1,10 @@
 import React from "react";
 
-const TextField = (name, value, onChange, label) => {
-  const handleChange = ({ target }) => {
-    onChange({ name: target.name, value: target.value });
-  };
+const TextField = (name, value, label, placeholder) => {
   return (
     <div>
       <div>
-        <label htmlFor={name}>{label}</label>
-        <input
-          type={name}
-          id={name}
-          name={name}
-          value={value}
-          onChange={handleChange}
-        />
-        
+        <h1>Я vошёl</h1>
       </div>
     </div>
   );

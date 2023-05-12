@@ -13,7 +13,7 @@ const MainPageStore = () => {
         modules={[Navigation]}
         slidesPerView={1}
         centeredSlides={true}
-        className="mySwiper"
+        className="mainSwiper "
       >
         {mainBackground.map((back) => (
           <SwiperSlide className="slide">

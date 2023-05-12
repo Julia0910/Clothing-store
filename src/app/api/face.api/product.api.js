@@ -774,7 +774,21 @@ const fetchAll = () =>
       resolve(products);
     }, 2000);
   });
+const getById = (id) =>
+  new Promise((resolve) => {
+    window.setTimeout(function () {
+      resolve(products.find((product) => product.id === id));
+    }, 1000);
+  });
+const getByIds = (ids) =>
+  new Promise((resolve) => {
+    window.setTimeout(function () {
+      resolve(products.filter((product) => ids.includes(product.id)));
+    }, 1000);
+  });
 
 export default {
   fetchAll,
+  getById,
+  getByIds,
 };

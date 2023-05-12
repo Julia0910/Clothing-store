@@ -1,24 +1,27 @@
 import { Switch, Route } from "react-router-dom";
-import AuthorizationPage from "./components/personalAccount";
-import MainPageStore from "./components/mainPageStore";
-import PersonalAccount from "./components/personalAccount";
-import ShoppingCart from "./components/shoppingCart";
 import NavigationPanel from "./components/navigationPanel";
-import ProductList from "./components/productList";
+import Product from "./layouts/product";
+import Basket from "./layouts/basket";
+import Account from "./layouts/account";
+import Registration from "./layouts/registration";
+import Main from "./layouts/main";
+import { Provider } from "react-redux";
+import store from "../store";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <NavigationPanel className="navigation-bar" />
       <Switch>
-        <Route path="/catalog/:productId?" component={ProductList} />
-        <Route path="/shoppingCart" component={ShoppingCart} />
-        <Route path="/personalAccount" component={PersonalAccount} />
-        <Route path="/authorizationPage" component={AuthorizationPage} />
-        <Route path="/" component={MainPageStore} exact />
+        <Route path="/catalog/:productId?" component={Product} />
+        <Route path="/shoppingCart" component={Basket} />
+        <Route path="/personalAccount/register" component={Registration} />
+        <Route path="/personalAccount" component={Account} />
+        <Route path="/" component={Main} exact />
       </Switch>
-    </div>
+      <Footer/>
+    </Provider>
   );
 }
-// /:productId
 export default App;

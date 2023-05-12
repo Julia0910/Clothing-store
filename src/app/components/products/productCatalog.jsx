@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { categories } from "../api/face.api/categories.api";
+import { categories } from "../../api/face.api/categories.api";
 const ProductCatalog = () => {
   const history = useHistory();
   const handleClick = () => {

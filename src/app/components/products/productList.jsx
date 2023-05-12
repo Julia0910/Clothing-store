@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./productCard";
-import Pagination from "./pagination";
-import { paginate } from "../utils/paginate";
-import { toNumberField } from "../utils/cast";
-import GroupList from "./groupList";
-import api from "../api";
-import SortSelect from "./sortSelect";
+import Pagination from "../pagination";
+import { paginate } from "../../utils/paginate";
+import { toNumberField } from "../../utils/cast";
+import GroupList from "../groupList";
+import api from "../../api";
+import SortSelect from "../sortSelect";
 import _ from "lodash";
+import "./product.css";
 
 const ProductList = () => {
   const [product, setProduct] = useState([]);
@@ -51,12 +52,14 @@ const ProductList = () => {
     {
       value: "priceASC",
       label: "Цена по возрастанию",
-      sort: (products) => _.orderBy(toNumberField(products, "price"), ["price"], ["asc"]),
+      sort: (products) =>
+        _.orderBy(toNumberField(products, "price"), ["price"], ["asc"]),
     },
     {
       value: "priceDESC",
       label: "Цена по убыванию",
-      sort: (products) => _.orderBy(toNumberField(products, "price"), ["price"], ["desc"]),
+      sort: (products) =>
+        _.orderBy(toNumberField(products, "price"), ["price"], ["desc"]),
     },
   ];
 
@@ -65,10 +68,10 @@ const ProductList = () => {
   };
 
   const sort = (productList) => {
-    const sortType = sortedProduct.find(item => item.value === sortSign);
+    const sortType = sortedProduct.find((item) => item.value === sortSign);
     if (!sortType) return productList;
     return sortType.sort(productList);
-  }
+  };
 
   const productCrop = paginate(sort(filteredProduct), currentPage, pageSize);
 
@@ -96,7 +99,7 @@ const ProductList = () => {
 
           <div className="product-list">
             {productCrop.map((product) => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard key={product.id} product={product} {...product} />
             ))}
           </div>
           <Pagination
