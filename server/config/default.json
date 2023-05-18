@@ -1,0 +1,4 @@
+{
+    "port": 8080,
+    "mongoUri": "mongodb+srv://juliaesutina:julia091020000@cluster0.bk2enfo.mongodb.net/clothing-store-app?retryWrites=true&w=majority" 
+}
