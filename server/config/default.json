@@ -1,4 +1,6 @@
 {
     "port": 8080,
-    "mongoUri": "mongodb+srv://juliaesutina:julia091020000@cluster0.bk2enfo.mongodb.net/clothing-store-app?retryWrites=true&w=majority" 
+    "mongoUri": "mongodb+srv://juliaesutina:julia091020000@cluster0.bk2enfo.mongodb.net/clothing-store-app?retryWrites=true&w=majority",
+    "accessSecret": "super secret access",
+    "refreshSecret": "super secret refresh"
 }
