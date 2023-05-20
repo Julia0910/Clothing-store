@@ -1,5 +1,5 @@
 const express = require("express");
-const Size = require("../modeles/Size");
+const Size = require("../models/Size");
 const router = express.Router({ mergeParams: true });
 
 router.get("/", async (req, res) => {

@@ -1,9 +1,9 @@
 const express = require("express");
-const User = require("../modeles/User");
+const User = require("../models/User");
 const { check, validationResult } = require("express-validator");
 const tokenService = require("../services/token.service");
 const { generateUserData } = require("../utils/helpers");
-const Token = require("../modeles/Token");
+const Token = require("../models/Token");
 
 const router = express.Router({ mergeParams: true });
 

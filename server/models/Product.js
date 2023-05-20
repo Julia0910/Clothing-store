@@ -4,12 +4,12 @@ const schema = new Schema(
     {
         title: { type: String },
         price: { type: String },
-        // size: { type: String, enum: ["mail", "female", "other"] },
+        size: { type: String },
         description: { type: String },
         structure: { type: String },
         rate: { type: Number },
         category: { type: Schema.Types.ObjectId, ref: "Category" },
-        // image: [{ type: Schema.Types.ObjectId, ref: "" }],
+        image: { type: String },
     },
     {
         timestamps: true,
