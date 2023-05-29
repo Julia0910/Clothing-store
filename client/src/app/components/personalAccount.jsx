@@ -1,13 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import AuthForm from "./form/authForm";
-import "./form/form.css";
-import TextField from "./form/textField";
 
 const PersonalAccount = () => {
-  const isLogin = useSelector((state) => state.auth.isLogin);
-  
-  return <>{isLogin ? <TextField /> : <AuthForm />}</>;
+    return (
+        <>
+            <h1>Hello</h1>
+        </>
+    );
 };
 
 export default PersonalAccount;
