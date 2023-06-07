@@ -1,40 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import api from "../../api";
+import { useSelector, useDispatch } from "react-redux";
 import CartItems from "./cartItem";
 import "./cart.css";
+import {
+    getCartList,
+    fetchCart,
+    deleteProductFromCart,
+} from "../../store/cart";
 
 const ShoppingCart = () => {
-  const [product, setProduct] = useState([]);
-  const productList = useSelector((state) => state.cart.list);
+    const productList = useSelector(getCartList());
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    api.products
-      .getByIds(productList.map((item) => item.productId))
-      .then((data) => setProduct(data));
-  }, [productList]);
+    // useEffect(() => {
+    //     api.products
+    //         .getByIds(productList.map((item) => item.productId))
+    //         .then((data) => setProduct(data));
+    // }, [productList]);
 
-  const handleDelete = (id) => {
-    const filterProduct = product.filter((prod) => prod.id !== id);
-    setProduct(filterProduct);
-  };
+    useEffect(() => {
+        dispatch(fetchCart());
+    }, []);
 
-  return (
-    <>
-      <div className="cart-items">
-        <h1>Корзина</h1>
-        {product.length>0 ? (
-          <div className="">
-            {product.map((prod) => (
-              <CartItems {...prod} key={prod.id} handleClick={handleDelete} />
-            ))}
-          </div>
-        ) : (
-          <p>Ваша корзина пуста</p>
-        )}
-      </div>
-    </>
-  );
+    const handleDelete = (id) => {
+        console.log(id);
+        dispatch(deleteProductFromCart(id));
+        // const filterProduct = product.filter((prod) => prod.id !== id);
+        // setProduct(filterProduct);
+    };
+
+    return (
+        <>
+            <div className="cart-items">
+                <h1>Корзина</h1>
+                {productList.length > 0 ? (
+                    productList.map((prod) => (
+                        <CartItems
+                            {...prod.product}
+                            size={prod.size}
+                            id={prod.id}
+                            key={prod.id}
+                            handleClick={handleDelete}
+                        />
+                    ))
+                ) : (
+                    <p>Ваша корзина пуста</p>
+                )}
+            </div>
+        </>
+    );
 };
 
 export default ShoppingCart;

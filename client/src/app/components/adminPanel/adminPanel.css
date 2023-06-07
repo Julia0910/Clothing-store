@@ -1,0 +1,35 @@
+.table {
+	min-height: 100vh;
+	width: 60%;
+	border:1px solid;
+	margin-bottom: 20px;
+    overflow-x: scroll;
+}
+.description {
+    height: 90px;
+}
+.images {
+	width: 500px;
+}
+.table thead th {
+    font-weight: bold;
+	text-align: left;
+	border: 1px solid;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+}
+
+.table tbody td {
+    overflow-y: auto;
+	text-align: left;
+	border: 1px solid;
+	padding: 10px 10px;
+	font-size: 14px;
+	vertical-align: top;
+}
+.icons {
+    padding: 5px;
+    font-size: 18px;
+}
+

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import api from "../../api";
-import { useDispatch } from "react-redux";
-import { createProduct } from "../../../app/store/products";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductById } from "../../../app/store/products";
+import { addProductToCart } from "../../../app/store/cart";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -12,25 +12,22 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const ProductPage = ({ productId }) => {
-    const [product, setProduct] = useState();
     const [selectorSize, setSelectorSize] = useState();
     const dispatch = useDispatch();
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
+    const product = useSelector(getProductById(productId));
+
     const handleClick = () => {
-        dispatch(createProduct({ productId, selectorSize }));
+        dispatch(addProductToCart({ productId, size: selectorSize }));
     };
 
     const handleSetSize = (size) => {
         setSelectorSize(size);
     };
 
-    useEffect(() => {
-        api.products.getById(productId).then((data) => setProduct(data));
-    }, [productId]);
-
     return (
-        <div>
+        <div className="container">
             {product ? (
                 <>
                     <div className="product-container">

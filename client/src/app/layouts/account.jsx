@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import AuthForm from "../components/form/authForm";
-import PersonalAccount from "../components/personalAccount";
+// import AdminPanel from "../components/adminPanel/AdminPanel";
+import PersonalAccount from "../components/account/personalAccount";
 import "../components/form/form.css";
 
 const Account = () => {

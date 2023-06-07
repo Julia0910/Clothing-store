@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./productCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Pagination from "../pagination";
 import { paginate } from "../../utils/paginate";
 import { toNumberField } from "../../utils/cast";
 import GroupList from "../groupList";
 import SortSelect from "../sortSelect";
 import _ from "lodash";
-import { getCategories } from "../../store/categories";
-import { getProducts } from "../../store/products";
+import { getCategories, loadCategoriesList } from "../../store/categories";
+import { getProducts, loadProductsList } from "../../store/products";
 import "./product.css";
 
 const ProductList = () => {
@@ -16,14 +16,31 @@ const ProductList = () => {
     const [selectedCategor, setSelectedCategor] = useState();
     const [sortSign, setSortSign] = useState("priceASC");
     const pageSize = 9;
+    const dispatch = useDispatch();
 
     const categories = useSelector(getCategories());
     const products = useSelector(getProducts());
-    console.log("categories", categories);
+
+    useEffect(() => {
+        dispatch(loadProductsList());
+        dispatch(loadCategoriesList());
+    }, []);
 
     useEffect(() => {
         setCurrentPage(1);
     }, [selectedCategor]);
+
+    useEffect(() => {
+        if (
+            products &&
+            currentPage > Math.ceil(products.length / pageSize) &&
+            currentPage > 1
+        ) {
+            setCurrentPage(currentPage - 1);
+        }
+    }, [products, currentPage]);
+
+    if (products === null) return null;
 
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex);
@@ -37,10 +54,10 @@ const ProductList = () => {
     };
 
     const filteredProduct = selectedCategor
-        ? products.filter((prod) => prod.category === selectedCategor)
+        ? products.filter((prod) => prod.category_id === selectedCategor.id)
         : products;
 
-    const count = filteredProduct.length;
+    const count = filteredProduct?.length ?? 0;
 
     const sortedProduct = [
         {
@@ -73,15 +90,6 @@ const ProductList = () => {
 
     const productCrop = paginate(sort(filteredProduct), currentPage, pageSize);
 
-    useEffect(() => {
-        if (
-            currentPage > Math.ceil(products.length / pageSize) &&
-            currentPage > 1
-        ) {
-            setCurrentPage(currentPage - 1);
-        }
-    }, [products, currentPage]);
-
     return (
         <>
             {productCrop && (
@@ -102,13 +110,14 @@ const ProductList = () => {
                     />
 
                     <div className="product-list">
-                        {productCrop.map((product) => (
-                            <ProductCard
-                                key={product.id}
-                                product={product}
-                                {...product}
-                            />
-                        ))}
+                        {productCrop &&
+                            productCrop.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                    {...product}
+                                />
+                            ))}
                     </div>
                     <Pagination
                         itemsCount={count}

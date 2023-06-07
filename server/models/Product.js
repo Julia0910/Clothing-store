@@ -2,12 +2,13 @@ const { Schema, model } = require("mongoose");
 
 const schema = new Schema(
     {
+        id: { type: String },
         title: { type: String },
         price: { type: String },
         description: { type: String },
         structure: { type: String },
         size: { type: [String] },
-        // category: { type: Schema.Types.ObjectId, ref: "Category" },
+        category: { type: String, ref: "Category" },
         image: { type: [String] },
     },
     {

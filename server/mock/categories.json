@@ -1,8 +1,8 @@
 [
-{ "id": "67rdca3eeb7f6fgeed471818", "name": "Верхняя одежда" },
-{ "id": "67rdca3eeb7f6fgeed471820", "name": "Платья" },
-{ "id": "67rdca3eeb7f6fgeed471814", "name": "Юбки" },
-{ "id": "67rdca3eeb7f6fgeed471822", "name": "Футболки и лонгсливы"},
-{ "id": "67rdca3eeb7f6fgeed471824", "name": "Костюмы" }
+{ "id": "67rdca3eeb7f6fgeed471818", "type": "outerwear", "name": "Верхняя одежда" },
+{ "id": "67rdca3eeb7f6fgeed471820", "type": "dresses", "name": "Платья" },
+{ "id": "67rdca3eeb7f6fgeed471814", "type": "skirts", "name": "Юбки" },
+{ "id": "67rdca3eeb7f6fgeed471822", "type": "tshirtsAndLongsleeves", "name": "Футболки и лонгсливы"},
+{ "id": "67rdca3eeb7f6fgeed471824", "type": "costumes", "name": "Костюмы" }
 ]
 

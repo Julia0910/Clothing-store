@@ -83,10 +83,10 @@ const userUpdateRequested = createAction("users/userUpdateRequested");
 export const login =
     ({ payload, redirect }) =>
     async (dispatch) => {
-        const { email, password } = payload;
+        const { email } = payload;
         dispatch(authRequested());
         try {
-            const data = await authService.login({ email, password });
+            const data = await authService.login({ email });
             localStorageService.setTokens(data);
             dispatch(authRequestSuccess({ userId: data.userId }));
             history.push(redirect);
@@ -115,8 +115,8 @@ export const signUp = (payload) =>
     };
 export const logOut = () => (dispatch) => {
     localStorageService.removeAuthData();
-    dispatch(userLoggedOut());
     history.push("/");
+    dispatch(userLoggedOut());
 };
 export const loadUsersList = () => async (dispatch) => {
     dispatch(usersRequested());

@@ -3,11 +3,19 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 16px;
   column-gap: 24px;
+  /* min-height: 100vh; */
+}
+.container {
+  position: static;
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
 }
 .product-container {
   display: flex;
-  width: 45%;
+  width: 47%;
+  margin: 5% 44% 20% 0%;
+
 }
 .productSwiper {
   height: 800px;
@@ -23,8 +31,8 @@
   opacity: 1;
 }
 .mySwiper2 {
-  height: 800px;
-  width: 600px;
+  height: 750px;
+  width: 800px;
 }
 .mySwiper2.swiper {
   margin: 0;
@@ -40,7 +48,7 @@
   height: 100%;
 }
 .style-info {
-  margin: 5% 0% 20% 50%;
+  margin: 10% 0% 20% 40%;
   position: absolute;
   top: 0;
 }
@@ -74,6 +82,9 @@ color: aliceblue;
 background-color: black;
 width: 300px;
 height: 45px;
+}
+.style-button:hover {
+  background-color: darkgray;
 }
 .style-button:disabled {
   color: aliceblue;

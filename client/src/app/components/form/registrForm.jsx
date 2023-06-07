@@ -31,10 +31,10 @@ const RegistrForm = () => {
         const newData = { ...data };
         dispatch(signUp(newData));
         setDisabled(true);
-        history.push("/");
+        history.push("/personalAccount");
     };
 
-    const handleChange = (target) => {
+    const handleChange = ({ target }) => {
         setData((prevState) => ({
             ...prevState,
             [target.name]: target.value,

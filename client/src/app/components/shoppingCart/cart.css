@@ -1,6 +1,6 @@
 .cart-items {
-  margin: 0% 20% 0% 20% ;
   min-height: 100vh;
+  margin: 0% 20% 0% 20% ;
 }
 .card-body {
   display: flex;

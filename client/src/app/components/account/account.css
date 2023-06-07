@@ -1,0 +1,30 @@
+.contain {
+    min-height: 100vh;
+}
+.contain-history {
+    margin-left: 20%;
+    max-width: 200px;
+}
+.image {
+    object-fit: cover;
+    width: 100%;  
+}
+.history {
+    padding-bottom: 20px;
+}
+.link {
+    font-size: 25px;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+.link:hover {
+    color: darkgray;
+}
+.headers {
+    text-align: center; 
+    font-size: 30px;
+}
+.logOut {
+    color: red;
+}
