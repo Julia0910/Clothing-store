@@ -4,16 +4,21 @@ const productEndpoint = "product/";
 
 const productService = {
     addProductToCart: async (payload) => {
-        const { data } = await httpService.post(`${productEndpoint}/cart`, payload);
+        const { data } = await httpService.post(`${productEndpoint}cart`, payload);
         return data;
     },
     getCart: async () => {
-        const { data } = await httpService.get(`${productEndpoint}/cart`);
+        const { data } = await httpService.get(`${productEndpoint}cart`);
         return data;
     },
     deleteProductFromCart: async (payload) => {
-        const { data } = await httpService.delete(`${productEndpoint}/cart/${payload}`);
+        const { data } = await httpService.delete(`${productEndpoint}cart/${payload}`);
         return data;
+    },
+    updateProductCart: async (payload) => {
+        const { productId, ...data } = payload;
+        const { data: result } = await httpService.patch(`${productEndpoint}cart/${productId}`, data);
+        return result;
     },
     getProducts: async () => {
         const { data } = await httpService.get(productEndpoint);

@@ -6,6 +6,7 @@ const schema = new Schema(
     {
         productId: String,
         size: String,
+        count: Number,
         userId: { type: Schema.Types.ObjectId, ref: 'User', required: true }
     },
     {

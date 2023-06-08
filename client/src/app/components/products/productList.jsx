@@ -24,7 +24,7 @@ const ProductList = () => {
     useEffect(() => {
         dispatch(loadProductsList());
         dispatch(loadCategoriesList());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         setCurrentPage(1);
@@ -54,7 +54,7 @@ const ProductList = () => {
     };
 
     const filteredProduct = selectedCategor
-        ? products.filter((prod) => prod.category_id === selectedCategor.id)
+        ? products.filter((prod) => prod.category === selectedCategor.type)
         : products;
 
     const count = filteredProduct?.length ?? 0;
@@ -91,43 +91,41 @@ const ProductList = () => {
     const productCrop = paginate(sort(filteredProduct), currentPage, pageSize);
 
     return (
-        <>
-            {productCrop && (
-                <div>
+        productCrop && (
+            <>
+                <div className="group-list">
                     {categories && (
-                        <div>
-                            <GroupList
-                                items={categories}
-                                onClick={handleCategoriClick}
-                            />
-                            <button onClick={clearFilter}>Смотреть всё</button>
-                        </div>
+                        <GroupList
+                            items={categories}
+                            onClick={handleCategoriClick}
+                            onClickButton={clearFilter}
+                        />
                     )}
-                    <SortSelect
+                </div>
+                <SortSelect
                         onSort={handleSort}
                         options={sortedProduct}
                         defaultValue="priceASC"
                     />
 
-                    <div className="product-list">
-                        {productCrop &&
-                            productCrop.map((product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                    {...product}
-                                />
-                            ))}
-                    </div>
-                    <Pagination
-                        itemsCount={count}
-                        pageSize={pageSize}
-                        currentPage={currentPage}
-                        onPageChange={handlePageChange}
-                    />
+                <div className="product-list">
+                    {productCrop &&
+                        productCrop.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                                {...product}
+                            />
+                        ))}
                 </div>
-            )}
-        </>
+                <Pagination
+                    itemsCount={count}
+                    pageSize={pageSize}
+                    currentPage={currentPage}
+                    onPageChange={handlePageChange}
+                />
+            </>
+        )
     );
 };
 

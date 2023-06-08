@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router";
 import TextField from "./textField";
 import SelectField from "./selectField";
+import TextareaField from "./textareaField";
 import { getCategories, loadCategoriesList } from "../../store/categories";
 import { Modal } from "antd";
 
@@ -14,7 +14,7 @@ function EditProduct({ isModalOpen, product, handleClose, handleSubmit }) {
 
     useEffect(() => {
         dispatch(loadCategoriesList());
-    }, []);
+    }, [dispatch]);
 
     const handleChange = useCallback((data) => {
         setData((prevState) => ({
@@ -48,7 +48,7 @@ function EditProduct({ isModalOpen, product, handleClose, handleSubmit }) {
                     value={data.title}
                 />
                 <SelectField
-                    options={categories.map(category => category.type )}
+                    options={categories?.map((category) => category.type) ?? []}
                     label="Категория"
                     name="category"
                     value={data.category}
@@ -66,25 +66,19 @@ function EditProduct({ isModalOpen, product, handleClose, handleSubmit }) {
                     name="size"
                     value={data.size}
                 />
-                <TextField
+                <TextareaField
                     onChange={handleChange}
                     label="Описание"
                     name="description"
                     value={data.description}
                 />
-                <TextField
+                <TextareaField
                     onChange={handleChange}
                     label="Состав"
                     name="structure"
                     value={data.structure}
                 />
-                {/* <TextField
-                    onChange={handleChange}
-                    label="Категория"
-                    name="category"
-                    // value={data.category}
-                /> */}
-                <TextField
+                <TextareaField
                     onChange={handleChange}
                     label="Картинка"
                     name="image"

@@ -33,7 +33,7 @@ const Table = ({ array, onClickDelete, onClickEdit }) => {
                             <td>{arr.structure}</td>
                             <td>
                                 <div className="images">
-                                    {arr.image?.join(" ")}
+                                    {arr.image?.join(" , ")}
                                 </div>
                             </td>
                             <td>

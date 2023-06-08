@@ -1,20 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { loadUsersList, getCurrentUserData, getIsLoggedIn } from "../store/users";
+import {
+    loadUsersList,
+    getCurrentUserData,
+    getIsLoggedIn,
+} from "../store/users";
+import Search from "./search";
 
 const NavigationPanel = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector(getCurrentUserData());
-    const isLoggedIn = useSelector(getIsLoggedIn())
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        if(isLoggedIn) dispatch(loadUsersList());
-    }, [ isLoggedIn, dispatch ]);
+        if (isLoggedIn) dispatch(loadUsersList());
+    }, [isLoggedIn, dispatch]);
 
     const handleHomClick = () => {
         history.push("/");
+    };
+
+    
+    const handleCloseModal = () => {
+        setOpen(false);
+    };
+    const handleOk = () => {
+        setOpen(false);
+      };
+    
+    const handleOpenModal = () => {
+        setOpen(true);
     };
     return (
         <>
@@ -58,12 +76,23 @@ const NavigationPanel = () => {
                                     Корзина
                                 </Link>
                             </li>
-                            {user?.role?.includes("admin") && <li className="nav-item">
-                                <Link className="nav-link" to={"/adminPanel"}>
-                                    Панель администратора
-                                </Link>
-                            </li>}
+                            <i
+                                className="bi bi-zoom-in"
+                                onClick={handleOpenModal}
+                            ></i>
+                            
+                            {user?.role?.includes("admin") && (
+                                <li className="nav-item">
+                                    <Link
+                                        className="nav-link"
+                                        to={"/adminPanel"}
+                                    >
+                                        Панель администратора
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
+                            <Search isModalOpen={open} handleCloseModal={handleCloseModal} handleOk={handleOk}/>
                     </div>
                 </div>
             </nav>

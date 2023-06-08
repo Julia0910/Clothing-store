@@ -12,24 +12,21 @@ function TextField({
         onChange({ name: target.name, value: target.value });
     };
     return (
-        <div className="">
-            <label htmlFor={name} className="">
+        <div class="input-group input-group-sm mb-3">
+            <span className="input-group-text" id="inputGroup-sizing-sm">
                 {label}
-            </label>
-            <div className="">
-                <input
-                    type="text"
-                    className=""
-                    id={name}
-                    name={name}
-                    value={value}
-                    onChange={handleChange}
-                    {...rest}
-                />
-            </div>
+            </span>
+            <input
+                type="text"
+                className="form-control"
+                id={name}
+                name={name}
+                value={value}
+                onChange={handleChange}
+                {...rest}
+            />
         </div>
     );
 }
-
 
 export default React.memo(TextField);

@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 16px;
   column-gap: 24px;
-  /* min-height: 100vh; */
+  margin-bottom: 36px;
 }
 .container {
   position: static;
@@ -36,6 +36,13 @@
 }
 .mySwiper2.swiper {
   margin: 0;
+}
+.sort-select {
+  float: right;
+  height: 20px;
+}
+.group-list {
+  display:inline-block;
 }
 
 .mySwiper2 img {

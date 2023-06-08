@@ -45,10 +45,26 @@ router.post("/cart", auth, async (req, res) => {
     try {
         await Cart.create({
             ...req.body,
+            count: 1,
             userId: req.user._id
         })
 
-        const result = await Cart.find({ userId: req.user._id }, 'product productId size').populate('product').exec();
+        const result = await Cart.find({ userId: req.user._id }, 'product productId size count').populate('product').exec();
+        res.send(result);
+    } catch (e) {
+        res.status(500).json({
+            massage: "На сервере произошла ошибка, попробуйте позже",
+        });
+    }
+});
+
+router.patch("/cart/:productId", auth, async (req, res) => {
+    try {
+        const { productId } = req.params;
+
+        await Cart.findByIdAndUpdate(productId, req.body, { new: true })
+
+        const result = await Cart.find({ userId: req.user._id }, 'product productId size count').populate('product').exec();
         res.send(result);
     } catch (e) {
         res.status(500).json({
@@ -59,7 +75,7 @@ router.post("/cart", auth, async (req, res) => {
 
 router.get("/cart", auth, async (req, res) => {
     try {
-        const result = await Cart.find({ userId: req.user._id }, 'product productId size').populate('product').exec();
+        const result = await Cart.find({ userId: req.user._id }, 'product productId size count').populate('product').exec();
         res.send(result);
     } catch (e) {
         res.status(500).json({

@@ -1,4 +1,4 @@
-import { createSlice, createAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import productsService from "../services/product.service";
 
 export const cartSlice = createSlice({
@@ -10,14 +10,12 @@ export const cartSlice = createSlice({
   reducers: {
     productAdded: (state, action) => {
       state.list = action.payload;
-      console.log(state.list)
       state.isLoading = false;
     },
     cartRequested: (state) => {
       state.isLoading = true;
     },
     productDeleted: (state, action) => {
-      console.log(state.list, action.payload, state.list.filter(item => item.productId !== action.payload))
       state.list = state.list.filter(item => item.id !== action.payload);
       state.isLoading = false;
     },
@@ -58,6 +56,16 @@ export const deleteProductFromCart = (payload) => async (dispatch) => {
       dispatch(cartRequestFailed(error.message));
   }
 };
+
+export const updateProductCart = (payload) => async (dispatch) => {
+  dispatch(cartRequested());
+  try {
+      const { content } = await productsService.updateProductCart(payload);
+      dispatch(productAdded(content));
+  } catch (error) {
+      dispatch(cartRequestFailed(error.message));
+  }
+}
 
 export const getCartList = () =>  (state) => state.cart.list
 

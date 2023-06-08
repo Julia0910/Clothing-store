@@ -19,12 +19,12 @@ const SelectField = ({
             : options;
 
     return (
-        <div className="md-4">
-            <label htmlFor={name} className="form-label">
-                {label}
+        <div className="input-group mb-3">
+            <label className="input-group-text" htmlFor={name}>
+            {label}
             </label>
             <select
-                className=""
+                className="form-select"
                 id={name}
                 onChange={handleChange}
                 value={value}

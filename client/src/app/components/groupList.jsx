@@ -1,26 +1,38 @@
 import React from "react";
 
-const GroupList = ({ items, onClick, contentProperty, valueProperty }) => {
-  
-  return (
-    <div>
-      <ul>
-        {Object.keys(items).map((item) => (
-          <li
-            role="button"
-            onClick={() => onClick(items[item])}
-            key={items[item][valueProperty]}
-          >
-            {items[item][contentProperty]}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+const GroupList = ({
+    items,
+    onClick,
+    contentProperty,
+    valueProperty,
+    onClickButton,
+}) => {
+    return (
+        <div>
+            <ul class="nav nav-tabs">
+                {Object.keys(items).map((item) => (
+                    <li
+                        className="nav-item nav-link active "
+                        role="button"
+                        onClick={() => onClick(items[item])}
+                        key={items[item][valueProperty]}
+                    >
+                        {items[item][contentProperty]}
+                    </li>
+                ))}
+                <button
+                    className="nav-item nav-link active"
+                    onClick={onClickButton}
+                >
+                    Смотреть всё
+                </button>
+            </ul>
+        </div>
+    );
 };
 GroupList.defaultProps = {
-  valueProperty: "id",
-  contentProperty: "name",
+    valueProperty: "id",
+    contentProperty: "name",
 };
 
 export default GroupList;

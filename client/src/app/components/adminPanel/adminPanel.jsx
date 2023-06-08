@@ -43,7 +43,7 @@ const AdminPanel = () => {
 
     return (
         <>
-            <Button onClick={handleAdd}>Добавить</Button>
+            <Button className="button" onClick={handleAdd}>Добавить новый товар</Button>
             {products && (
                 <div className="">
                     <Table

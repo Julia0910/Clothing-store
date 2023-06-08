@@ -17,9 +17,6 @@ code {
   z-index: 3;
   height: 40px;
 }
-/* .main-page {
-  
-} */
 .mainSwiper {
   margin-top: 7px;
   height: 50vw;
@@ -59,5 +56,21 @@ body {
   background-size: cover;
   background-position: center;
 }
+.pagination-block {
+  width: 200px;
+  margin: auto auto;
+}
+.search-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 16px;
+  column-gap: 24px;
+  margin-top: 30px;
+}
+.input-modal {
+  border-bottom: 1px  solid;
+  width: 500px;
+}
+
 
 

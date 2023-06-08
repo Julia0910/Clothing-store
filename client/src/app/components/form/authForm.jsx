@@ -12,12 +12,6 @@ const AuthForm = () => {
     const [disabled, setDisabled] = useState(false);
     const [errors, setErrors] = useState({});
 
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   dispatch(set(data));
-    //   setDisabled(true);
-    //   history.push("/personalAccount");
-    // };
     const handleChange = ({ target }) => {
         setData((prevState) => ({
             ...prevState,
@@ -53,9 +47,6 @@ const AuthForm = () => {
         dispath(login({ payload: data, redirect }));
     };
 
-    const handleClisck = () => {
-        console.log("click");
-    };
 
     return (
         <>
@@ -97,7 +88,6 @@ const AuthForm = () => {
                             </div>
                         )}
                         <button
-                            onClick={handleClisck}
                             className="btn btn-secondary"
                             disabled={disabled}
                             type="submit"

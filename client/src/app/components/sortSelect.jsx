@@ -8,7 +8,7 @@ const SortSelect = ({ onSort, options, defaultValue }) => {
   };
 
   return (
-    <div>
+    <div className="sort-select">
       <Select
         defaultValue={defaultValue}
         style={{
