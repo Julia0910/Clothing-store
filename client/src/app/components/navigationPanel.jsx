@@ -35,7 +35,7 @@ const NavigationPanel = () => {
     };
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary text-bg-secondary p-3 ">
+            <nav className="navbar navbar-expand-lg text-bg-secondary p-3 ">
                 <div className="container-fluid navigation-bar">
                     <span className="nav-link active" onClick={handleHomClick}>
                         All the most beautiful
