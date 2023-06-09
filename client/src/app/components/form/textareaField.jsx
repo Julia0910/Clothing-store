@@ -1,6 +1,6 @@
 import React from "react";
 
-function TextareaField({ value = "", label, name, onChange, ...rest }) {
+const TextareaField = ({ value = "", label, name, onChange, ...rest }) => {
     const handleChange = ({ target }) => {
         onChange({ name: target.name, value: target.value });
     };
@@ -21,7 +21,6 @@ function TextareaField({ value = "", label, name, onChange, ...rest }) {
             </div>
         </div>
     );
-}
+};
 
-// export default React.memo(TextareaField);
 export default TextareaField;

@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TextField from "./textField";
-import SelectField from "./selectField";
-import TextareaField from "./textareaField";
+import TextField from "../form/textField";
+import SelectField from "../form/selectField";
+import TextareaField from "../form/textareaField";
 import { getCategories, loadCategoriesList } from "../../store/categories";
 import { Modal } from "antd";
 

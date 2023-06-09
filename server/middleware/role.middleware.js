@@ -9,7 +9,6 @@ module.exports = (...permittedRoles) => {
         try {
             const { _id } = req.user;
             const user = await User.findOne({ _id });
-            console.log(user);
             if (user && user.role.some((role) => permittedRoles.includes(role))) {
                 next();
             } else {

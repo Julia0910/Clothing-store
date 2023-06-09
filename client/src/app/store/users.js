@@ -108,9 +108,8 @@ export const signUp = (payload) =>
             const data = await authService.register(payload);
             localStorageService.setTokens(data);
             dispatch(authRequestSuccess({ userId: data.userId }));
-            history.push("/users");
         } catch (error) {
-            dispatch(authRequestFailed(error.message));
+            dispatch(authRequestFailed(error.response.data.error));
         }
     };
 export const logOut = () => (dispatch) => {

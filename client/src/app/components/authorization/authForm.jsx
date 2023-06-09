@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./form.css";
+import "./auth.css";
 import { validator } from "../../utils/validator";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/users";
+import TextFieldAuth from "../form/textFieldAuth";
 
 const AuthForm = () => {
     const [data, setData] = useState({ name: "", email: "" });
@@ -47,41 +48,23 @@ const AuthForm = () => {
         dispath(login({ payload: data, redirect }));
     };
 
-
     return (
         <>
-            <div className="style-blosk">
+            <div className="style-blosk mb-3">
                 <div className="style-label">
                     <h1>Авторизация</h1>
                 </div>
                 <div className="style-form">
                     <form onSubmit={handleSubmit}>
-                        <span className="card-header">Введите имя</span>
-                        <div className="style-input-div">
-                            <input
-                                className="style-input"
-                                type="name"
-                                id="name"
-                                name="name"
-                                value={data.name}
-                                placeholder="name"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <span className="card-header">
-                            Введите электронную почту
-                        </span>
-                        <div className="style-input-div">
-                            <input
-                                className="style-input"
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={data.email}
-                                placeholder="email"
-                                onChange={handleChange}
-                            />
-                        </div>
+                        <TextFieldAuth
+                            onChange={handleChange}
+                            label="Электронная почта"
+                            name="email"
+                            value={data.email}
+                            placeholder="email"
+                            type="email"
+                            id="email"
+                        />
                         {errors && (
                             <div className="invalid-feedback ">
                                 {errors.email}

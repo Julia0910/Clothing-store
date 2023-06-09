@@ -21,40 +21,47 @@ const ShoppingCart = () => {
         dispatch(deleteProductFromCart(id));
     };
     const handleDicrement = ({ id: productId, count }) => {
-        console.log("dic");
-        dispatch(count > 0
-            ? updateProductCart({ productId, count })
-            : deleteProductFromCart(productId))
+        dispatch(
+            count > 0
+                ? updateProductCart({ productId, count })
+                : deleteProductFromCart(productId)
+        );
     };
     const handleIncrement = ({ id: productId, count }) => {
-        console.log("inc");
-        dispatch(updateProductCart({ productId, count }))
+        dispatch(updateProductCart({ productId, count }));
     };
 
-    const summ = productList.reduce((acc, cur) => (
-        Number(acc) + cur.count*Number(cur.product.price)
-    ), 0)
+    const summ = productList.reduce(
+        (acc, cur) => Number(acc) + cur.count * Number(cur.product.price),
+        0
+    );
 
     return (
         <>
             <div className="cart-items">
-                <h1>Корзина</h1>
+                <p className="badges">КОРЗИНА ТОВАРОВ</p>
+
                 {productList.length > 0 ? (
-                    <>
-                        {productList.map((prod) => (
-                            <CartItems
-                                {...prod.product}
-                                count={prod.count}
-                                size={prod.size}
-                                id={prod.id}
-                                key={prod.id}
-                                handleClick={handleDelete}
-                                handleDicrement={handleDicrement}
-                                handleIncrement={handleIncrement}
-                            />
-                        ))}
-                        <h2>Итого: {summ}</h2>
-                    </>
+                    <div className="cart-products">
+                        <div>
+                            {productList.map((prod) => (
+                                <CartItems
+                                    {...prod.product}
+                                    count={prod.count}
+                                    size={prod.size}
+                                    id={prod.id}
+                                    key={prod.id}
+                                    handleClick={handleDelete}
+                                    handleDicrement={handleDicrement}
+                                    handleIncrement={handleIncrement}
+                                />
+                            ))}
+                        </div>
+                        <div className="checkout">
+                            <p className="badges">Итого: {`${summ} Р.`}</p>
+                            <button className="style-button">Оформить заказ</button>
+                        </div>
+                    </div>
                 ) : (
                     <p>Ваша корзина пуста</p>
                 )}

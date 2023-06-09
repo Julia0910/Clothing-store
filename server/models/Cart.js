@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-// const GoodSchema = new Schema({ productId: String, size: String });
-
 const schema = new Schema(
     {
         productId: String,
@@ -20,7 +18,7 @@ schema.virtual('product', {
     ref: 'Product',
     localField: 'productId',
     foreignField: 'id',
-    justOne: true // for many-to-1 relationships
+    justOne: true
 });
 
 module.exports = model("Cart", schema);

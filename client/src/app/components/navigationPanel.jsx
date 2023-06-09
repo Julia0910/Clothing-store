@@ -23,14 +23,13 @@ const NavigationPanel = () => {
         history.push("/");
     };
 
-    
     const handleCloseModal = () => {
         setOpen(false);
     };
     const handleOk = () => {
         setOpen(false);
-      };
-    
+    };
+
     const handleOpenModal = () => {
         setOpen(true);
     };
@@ -77,10 +76,11 @@ const NavigationPanel = () => {
                                 </Link>
                             </li>
                             <i
-                                className="bi bi-zoom-in"
+                                className="bi bi-search icons"
                                 onClick={handleOpenModal}
-                            ></i>
+                            > Поиск по названию</i>
                             
+
                             {user?.role?.includes("admin") && (
                                 <li className="nav-item">
                                     <Link
@@ -92,7 +92,11 @@ const NavigationPanel = () => {
                                 </li>
                             )}
                         </ul>
-                            <Search isModalOpen={open} handleCloseModal={handleCloseModal} handleOk={handleOk}/>
+                        <Search
+                            isModalOpen={open}
+                            handleCloseModal={handleCloseModal}
+                            handleOk={handleOk}
+                        />
                     </div>
                 </div>
             </nav>

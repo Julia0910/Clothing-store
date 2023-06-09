@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getProducts } from "../store/products";
-import { useSelector } from "react-redux";
+import { getProducts, loadProductsList } from "../store/products";
+import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "./products/productCard";
 import { Modal } from "antd";
 
@@ -8,11 +8,12 @@ const Search = ({ isModalOpen, handleCloseModal, handleOk }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const products = useSelector(getProducts());
-    //  const dispatch = useDispatch();
 
-    //  useEffect(() => {
-    //      dispatch(loadProductsList());
-    //  }, []);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadProductsList());
+    }, [dispatch]);
 
     useEffect(() => {
         const results =
@@ -25,11 +26,10 @@ const Search = ({ isModalOpen, handleCloseModal, handleOk }) => {
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
     };
-
     return (
         <>
             <Modal
-                title="Edit Modal"
+                title="Поиск"
                 open={isModalOpen}
                 onCancel={handleCloseModal}
                 onOk={handleOk}
@@ -39,7 +39,7 @@ const Search = ({ isModalOpen, handleCloseModal, handleOk }) => {
             >
                 <form className="d-flex modal-title fs-5" role="search">
                     <input
-                        className="form-control me-2 input-modal"
+                        className="input-modal"
                         type="search"
                         placeholder="Поиск по названию"
                         aria-label="Search"
@@ -50,7 +50,7 @@ const Search = ({ isModalOpen, handleCloseModal, handleOk }) => {
                 <div className="search-block">
                     {searchTerm.length !== 0 && searchResults
                         ? searchResults.map((product) => (
-                              <div className="">
+                              <div onClick={handleOk}>
                                   <ProductCard
                                       key={product.id}
                                       product={product}

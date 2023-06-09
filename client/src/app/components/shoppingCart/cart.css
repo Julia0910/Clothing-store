@@ -1,13 +1,17 @@
 .cart-items {
   min-height: 100vh;
-  margin: 0% 20% 0% 20% ;
+  margin: 0% 20% 0% 10% ;
 }
 .card-body {
   display: flex;
+
 }
 .cart-item {
   max-width: 700px;
-  margin-top: 50px;
+}
+.cart-products {
+  display: flex;
+  gap: 40px;
 }
 .style-icon {
   margin-left: auto;
@@ -17,3 +21,14 @@
   height: 100%;
   object-fit: cover;
 }
+.checkout {
+  margin-left: auto;
+  position: sticky;
+  top: 0;
+  height: fit-content;
+}
+.badges {
+  font-size: 26px;
+  white-space: nowrap;
+}
+

@@ -9,7 +9,7 @@ const GroupList = ({
 }) => {
     return (
         <div>
-            <ul class="nav nav-tabs">
+            <ul className="nav nav-tabs">
                 {Object.keys(items).map((item) => (
                     <li
                         className="nav-item nav-link active "

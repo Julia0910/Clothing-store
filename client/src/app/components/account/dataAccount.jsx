@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logOut } from "../../store/users";
 
-const History = (name) => {
+const DataAccount = (name) => {
     const dispatch = useDispatch();
     const handleLogOut = () => {
         dispatch(logOut());
@@ -14,15 +14,15 @@ const History = (name) => {
             <div className="contain-history">
                 <div className="history" role="button">
                     <i className="bi bi-suit-heart"></i>
-                    <Link className="link" to={"/favorites"}>
+                    <span className="link">
                         Избранное
-                    </Link>
+                    </span>
                 </div>
                 <div className="history" role="button">
                     <i className="bi bi-hdd-stack"></i>
-                    <Link className="link" to={"/edit"}>
+                    <span className="link" to={"/edit"}>
                         Мои данные
-                    </Link>
+                    </span>
                 </div>
                 <div className="history" role="button">
                     <i className="bi bi-star"></i>
@@ -32,13 +32,13 @@ const History = (name) => {
                 </div>
                 <div className="history" role="button">
                     <i className="bi bi-person-gear"></i>
-                    <button className="logOut" onClick={handleLogOut}>
+                    <span className="link" onClick={handleLogOut}>
                         Выйти
-                    </button>
+                    </span>
                 </div>
             </div>
         </>
     );
 };
 
-export default History;
+export default DataAccount;

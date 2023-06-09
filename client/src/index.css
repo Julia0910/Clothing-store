@@ -68,6 +68,8 @@ body {
   margin-top: 30px;
 }
 .input-modal {
+  border: 0px;
+  outline:0px;
   border-bottom: 1px  solid;
   width: 500px;
 }

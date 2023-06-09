@@ -3,7 +3,7 @@ import { Card } from "antd";
 import { Link } from "react-router-dom";
 
 const { Meta } = Card;
-const ProductCard = ({ product, image, title, price }) => {
+const ProductCard = ({ product, image, title, price}) => {
   return (
     <>
       <Link to={`/catalog/${product.id}`}>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./footer.css"
 const Footer = () => {
   return (
@@ -8,28 +7,27 @@ const Footer = () => {
       <footer className="style-footer">
         <div className="style-block">
           <p>О НАС</p>
-          <Link>Отзывы</Link>
+          <p role={"button"}>Отзывы</p>
           <br/>
-          <Link>Контакты</Link>
+          <p role={"button"}>Контакты</p>
           <br/>
-          <Link>Магазины</Link>
+          <p role={"button"}>Магазины</p>
         </div>
         <div className="style-block">
           <p>ЗАДАЙТЕ ВОПРОС</p>
-          <Link>WHATSAPP</Link>
+          <p role={"button"}>WHATSAPP</p>
           <br/>
-          <Link>TELEGRAM-КАНАЛ</Link>
+          <p role={"button"}>TELEGRAM-КАНАЛ</p>
           <br/>
-          <Link>ЭЛ.ПОЧТА</Link>
+          <p role={"button"}>ЭЛ.ПОЧТА</p>
         </div>
         <div className="style-block">
           <p>ПОКУПАТЕЛЯМ</p>
-          <Link>ОПЛАТА И ДОСТАВКА</Link>
+          <p role={"button"}>ОПЛАТА И ДОСТАВКА</p>
           <br/>
-          <Link>РЕКВИЗИТЫ ОРГАНИЗАЦИИ</Link>
+          <p role={"button"}>РЕКВИЗИТЫ ОРГАНИЗАЦИИ</p>
           <br/>
-          <Link>ВОЗВРАТ</Link>
-          <Link>ВОПРОС-ОТВЕТ</Link>
+          <p role={"button"}>ВОЗВРАТ</p>
         </div>
       </footer>
     </>

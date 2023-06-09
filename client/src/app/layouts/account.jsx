@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import AuthForm from "../components/form/authForm";
-// import AdminPanel from "../components/adminPanel/AdminPanel";
+import AuthForm from "../components/authorization/authForm"
 import PersonalAccount from "../components/account/personalAccount";
 import "../components/form/form.css";
 

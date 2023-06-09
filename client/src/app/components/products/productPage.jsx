@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getProductById } from "../../../app/store/products";
 import { addProductToCart } from "../../../app/store/cart";
+import { getIsLoggedIn } from "../../../app/store/users";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Modal } from "antd";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -13,17 +16,27 @@ import { LoadingOutlined } from "@ant-design/icons";
 
 const ProductPage = ({ productId }) => {
     const [selectorSize, setSelectorSize] = useState();
+    const [open, setModalOpen] = useState(false);
     const dispatch = useDispatch();
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const history = useHistory();
 
     const product = useSelector(getProductById(productId));
+    const isLogin = useSelector(getIsLoggedIn());
 
     const handleClick = () => {
         dispatch(addProductToCart({ productId, size: selectorSize }));
+        setModalOpen(true);
     };
 
     const handleSetSize = (size) => {
         setSelectorSize(size);
+    };
+    const handleCancel = () => {
+        setModalOpen(false);
+    };
+    const handleClickCart = () => {
+        history.push("/shoppingCart");
     };
 
     return (
@@ -96,12 +109,44 @@ const ProductPage = ({ productId }) => {
                             <span>{product.structure}</span>
                         </div>
                         <button
-                            disabled={!selectorSize}
+                            disabled={!selectorSize || !isLogin}
                             className="style-button"
                             onClick={handleClick}
                         >
                             Добавить в корзину
                         </button>
+                        {!isLogin && (
+                            <div>
+                                <b>
+                                    Чтобы добавить товар в корзину,
+                                    авторизуйтесь{" "}
+                                </b>
+                                <small>
+                                    <sup>
+                                        <i class="bi bi-asterisk"></i>
+                                    </sup>
+                                </small>
+                            </div>
+                        )}
+                        <Modal
+                            title="Товар успешно добавлен в корзину"
+                            open={open}
+                            footer={null}
+                            closable={false}
+                        >
+                            <button
+                                onClick={() => handleClickCart()}
+                                className="style-button"
+                            >
+                                Перейти в корзину
+                            </button>
+                            <button
+                                onClick={handleCancel}
+                                className="style-button-2"
+                            >
+                                Продолжить покупки
+                            </button>
+                        </Modal>
                     </div>
                 </>
             ) : (

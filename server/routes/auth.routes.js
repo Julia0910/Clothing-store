@@ -16,7 +16,7 @@ router.post("/signUp", [
             if (!errors.isEmpty()) {
                 return res.status(400).json({
                     error: {
-                        massage: "INVALID_DATA",
+                        message: "INVALID_DATA",
                         code: 400,
                     },
                 });
@@ -27,7 +27,7 @@ router.post("/signUp", [
             if (exitingUser) {
                 return res.status(400).json({
                     error: {
-                        massage: "EMAIL_EXISTS",
+                        message: "Не валидный email",
                         code: 400,
                     },
                 });

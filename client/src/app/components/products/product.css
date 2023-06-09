@@ -4,6 +4,7 @@
   row-gap: 16px;
   column-gap: 24px;
   margin-bottom: 36px;
+  margin-top: 24px;
 }
 .container {
   position: static;
@@ -87,6 +88,13 @@
 .style-button {
 color: aliceblue;
 background-color: black;
+width: 300px;
+height: 45px;
+margin-bottom: 8px;
+}
+.style-button-2 {
+color: black;
+background-color: white;
 width: 300px;
 height: 45px;
 }

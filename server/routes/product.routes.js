@@ -99,7 +99,6 @@ router.delete("/cart/:productId", auth, async (req, res) => {
 router.delete('/:productId', auth, role('admin'), async (req, res) => {
     try {
         const { productId } = req.params
-        console.log(productId)
         await Product.findByIdAndRemove(productId)
         return res.send(null)
     } catch (e) {
